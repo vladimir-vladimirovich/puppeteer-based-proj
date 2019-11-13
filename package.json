@@ -1,0 +1,22 @@
+{
+  "name": "jesttesting",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "jest": {
+    "preset": "jest-puppeteer",
+    "testMatch": [
+      "<rootDir>/tests/*.test.js"
+    ]
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "puppeteer": "^1.20.0",
+    "jest-puppeteer": "^4.3.0"
+  }
+}
