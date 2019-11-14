@@ -21,11 +21,43 @@ class LoginWidget {
     }
 
     /**
+     * @returns {Promise<WebElement>}
+     */
+    async getSubmitButton() {
+        let container = await this.getLoginWidgetContainer();
+        return container.findElement(locators.loginWidget.submitButton);
+    }
+
+    /**
+     * @returns {Promise<WebElement>}
+     */
+    async getPasswordInput() {
+        let container = await this.getLoginWidgetContainer();
+        return container.findElement(locators.loginWidget.passwordInput);
+    }
+
+    /**
      * @param {String} value 
      */
     async setUsername(value) {
         let usernameInput = await this.getUsernameInput();
         await usernameInput.type(value);
+    }
+
+    /**
+     * @param {String} value 
+     */
+    async setPassword(value) {
+        let passwordInput = await this.getPasswordInput();
+        await passwordInput.type(value);
+    }
+
+    /**
+     * Click
+     */
+    async clickSubmitButton(value) {
+        let submitButton = await this.getSubmitButton();
+        await submitButton.click();
     }
 }
 

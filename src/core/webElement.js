@@ -62,6 +62,15 @@ class WebElement {
     async type(value) {
         await this.elementHandle.type(value);
     }
+
+    /**
+     * Click
+     */
+    async click() {
+        // console.log('await this.elementHandle.click()');
+        // console.log(this.elementHandle);
+        await this.elementHandle.click()
+    }
 }
 
 module.exports = WebElement;

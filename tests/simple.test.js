@@ -1,28 +1,28 @@
 const pageLinks = require('../src/data/pageLinks');
 const Tab = require('../src/core/tab');
 const LoginWidget = require('../src/ui/loginWidget');
+const Header = require('../src/ui/header');
+const LogoutPopup = require('../src/ui/popups/logoutPopup');
+
+let mainTab;
 
 describe('Make spins history', () => {
-    // const tab;
-
-    // beforeAll(async () => {
-    // await Browser.navigate(pageLinks.STG.home);
-    // const page = await browser.newPage();
-    // await page.goto(pageLinks.STG.home);
-    // });
-
     test('Log in', async () => {
-        function delay(time) {
-            return new Promise(function (resolve) {
-                setTimeout(resolve, time)
-            });
-        }
-        const tab = await Tab.open();
-        await tab.goto(pageLinks.STG.home);
+        mainTab = await Tab.open();
+        await mainTab.goto(pageLinks.STG.home);
 
-        const loginWidget = new LoginWidget(tab);
+        const loginWidget = new LoginWidget(mainTab);
         await loginWidget.setUsername('test.idv1@playtech.com');
+        await loginWidget.setPassword('Q1w2e3r4');
+        await loginWidget.clickSubmitButton();
 
-        await delay(10000);
-    }, 60000);
+        const header = new Header(mainTab);
+        await header.clickDesktopLogoutButton();
+
+        const logoutPopup = new LogoutPopup(mainTab);
+        await logoutPopup.clickLogoutButton();
+
+        await mainTab.pause(10000);
+    }, 300000);
+
 });

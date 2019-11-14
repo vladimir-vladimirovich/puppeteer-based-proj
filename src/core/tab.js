@@ -41,6 +41,14 @@ class Tab {
     async getInstance(selector, checkInterval, waitTime) {
         return WebElement.getElement(this.page, selector, undefined, checkInterval, waitTime);
     }
+
+    /**
+     * Delay
+     * @param {Number} time - ms
+     */
+    async pause(time) {
+       return new Promise(resolve => setTimeout(resolve, time)); 
+    }
 }
 
 module.exports = Tab;
