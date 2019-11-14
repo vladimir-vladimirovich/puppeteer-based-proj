@@ -12,8 +12,8 @@ describe('Make spins history', () => {
         await mainTab.goto(pageLinks.STG.home);
 
         const loginWidget = new LoginWidget(mainTab);
-        await loginWidget.setUsername('test.idv1@playtech.com');
-        await loginWidget.setPassword('Q1w2e3r4');
+        await loginWidget.setUsername('xxxx@xxx.xxx');
+        await loginWidget.setPassword('xxxxxxx');
         await loginWidget.clickSubmitButton();
 
         const header = new Header(mainTab);
